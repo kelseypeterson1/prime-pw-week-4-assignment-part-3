@@ -11,17 +11,36 @@ function addItem(item) {
 }
 
 // Testing the addItem function
-console.log("Test - adding a pineapple using the addItem function", addItem("pineapple"));
-console.log("Basket now contains:", basket[0]);
+console.log("Basket is empty:", basket);
+console.log("Test - adding a pineapple using the addItem function (expect true)", addItem("pineapple"));
+console.log("Adding an orange", addItem("orange"));
+console.log("Adding a banana", addItem("banana"));
+console.log("Basket now contains:", basket);
 
 // Listing items in basket
 let index = 0;
 function listItems() {
-  while (index<basket.length) {
+  if (basket.length === 0) {
+    console.log("nothing");
+  } else {
+    while (index<basket.length) {
     console.log(basket[index]);
     index++;
+    }
   }
 }
 
-console.log("Test - Listing items in basket:");
+// Testing the listItems function
+console.log("Test - Listing items in basket using the listItems function:");
+listItems();
+
+// Emptying the basket
+function empty() {
+  basket = [];
+  return true;
+}
+
+// Testing the empty function
+console.log("Test - emptying the basket (expect true):", empty());
+console.log("Basket now contains:");
 listItems();
