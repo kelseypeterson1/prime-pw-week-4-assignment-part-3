@@ -28,6 +28,7 @@ function listItems() {
     index++;
     }
   }
+  index = 0;
 }
 
 // Testing the listItems function
@@ -44,3 +45,37 @@ function empty() {
 console.log("Test - emptying the basket (expect true):", empty());
 console.log("Basket now contains:");
 listItems();
+
+// Stretch goals:
+const maxItems = 5;
+
+// Determining if the basket has more items than the max
+function isFull () {
+  if (basket.length < maxItems) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
+// Testing the isFull function
+console.log("Test - Checking if the basket is full using the isFull function (expect false):", isFull());
+
+// Updating the addItems function so it won't add items if the basket is full
+addItem = function updatedAddItem(item) {
+  if (basket.length < maxItems) {
+    basket.push(item);
+    return true;
+  } else {
+    return false;
+  }
+}
+
+//Testing the updated addItem function
+console.log("Adding an apricot to the basket", addItem("apricot"));
+console.log("Adding a tangerine", addItem("tangerine"));
+console.log("Adding a grapefruit", addItem("grapefruit"));
+console.log("Adding an apple", addItem("apple"));
+console.log("Adding a peach", addItem("peach"));
+console.log("Checking if basekt is full:", isFull());
+console.log("Test - Adding a coconut (expect false)", addItem("coconut"));
